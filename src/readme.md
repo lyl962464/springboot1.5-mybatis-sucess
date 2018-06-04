@@ -1,0 +1,3 @@
+##SpringBoot的异常处理
+springboot默认提供了对异常的处理 有两个地方可以存放展示给用户看的错误页面，
+一个是在static下，一个是在templates下
