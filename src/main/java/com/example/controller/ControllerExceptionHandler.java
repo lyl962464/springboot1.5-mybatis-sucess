@@ -26,14 +26,8 @@ public class ControllerExceptionHandler {
 
 
     @ExceptionHandler(Exception.class)
-    public ModelAndView ExceptionHandler(HttpServletRequest request, Exception e) throws Exception {
+    public ModelAndView exceptionhandler(HttpServletRequest request, Exception e) throws Exception {
         logger.error("request URL : {}, Exception : {}",request.getRequestURI(),e);
-        /**
-         *判断相应的状态码，如果不为空 那么就是404或者是500，如果为空
-         * 就跳转到error页面 并用开发者工具可以查看到是什么异常
-         *
-         *
-         */
         if(AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null){
             throw e;
         }
