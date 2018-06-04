@@ -1,7 +1,8 @@
 ###配置tomcat启动的端口号
 server:
   port: 8090
-
+  tomcat:
+    uri-encoding: UTF-8
 spring:
     datasource:
         name: mysql_test
@@ -32,6 +33,14 @@ spring:
           #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
+    thymeleaf:
+          cache: false
+          #有的时候json数据在浏览器页面输出的时候，可能是乱码，解决方法是：新建一个配置文件：application.properties
+    http:
+          encoding:
+            force: true
+            charset: UTF-8
+            enabled: true
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml

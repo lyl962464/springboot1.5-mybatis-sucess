@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.exception.NotFundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController {
@@ -16,6 +17,10 @@ public class IndexController {
         }
 
         return "index";
+    }
+    @RequestMapping("/getError")
+    public String indexError(){
+        return "error";
     }
 
 }
