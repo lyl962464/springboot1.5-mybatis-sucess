@@ -37,5 +37,47 @@ SpringBoot是为了简化Spring应用的创建、运行、调试、部署等一�
 </dependency>
 
 
+###定义一个名为my2.properties的资源文件，自定义配置文件的命名不强制application开头
+
+
+`@Component
+ @PropertySource("classpath:my.properties")
+ @ConfigurationProperties(prefix = "my")
+ public class MyProperties {
+     private int age;
+     private String name;
+ 
+     @Override
+     public String toString() {
+         return "MyProperties{" +
+                 "age=" + age +
+                 ", name='" + name + '\'' +
+                 '}';
+     }
+ 
+     public int getAge() {
+         return age;
+     }
+ 
+     public void setAge(int age) {
+         this.age = age;
+     }
+ 
+     public String getName() {
+         return name;
+     }
+ 
+     public void setName(String name) {
+         this.name = name;
+     }
+ }`
+
+
+
+
+
+
+
+
 
 
