@@ -53,3 +53,11 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
+# Shiro
+shiro:
+    configLocation: classpath:shiro/*.xml
+
+
+my.age=18
+my.name=码农
