@@ -41,6 +41,9 @@ spring:
             force: true
             charset: UTF-8
             enabled: true
+    ##由此可以看出来我们激活不同的配置读取的属性值是不一样的
+    profiles:
+      active: dev
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml
@@ -57,3 +60,5 @@ pagehelper:
 # Shiro
 shiro:
     configLocation: classpath:shiro/*.xml
+
+

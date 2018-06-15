@@ -71,6 +71,61 @@ SpringBoot是为了简化Spring应用的创建、运行、调试、部署等一�
          this.name = name;
      }
  }`
+ 
+ ###多环境的配置
+ 在真实的应用中，常常会有多个环境（如：开发，测试，生产等），不同的环境数据库连接都不一样，
+ 这个时候就需要用到spring.profile.active的强大功能了，它的格式为application-{profile}.properties，
+ 这里的application为前缀不能改，{profile}是我们自己定义的。
+ 
+ 
+ 创建application-dev.properties、application-test.properties、application-prod.properties
+ 
+ 在application.properties配置文件中写入spring.profiles.active=dev，
+ 这个时候我们在次访问http://localhost:8080/properties/1就没用处了，因为我们设置了它的context-path=/dev，
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
