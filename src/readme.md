@@ -81,7 +81,73 @@ SpringBoot是为了简化Spring应用的创建、运行、调试、部署等一�
  创建application-dev.properties、application-test.properties、application-prod.properties
  
  在application.properties配置文件中写入spring.profiles.active=dev，
- 这个时候我们在次访问http://localhost:8080/properties/1就没用处了，因为我们设置了它的context-path=/dev，
+ 
+ ##SpringBoot日志配置
+ 
+ 
+ Java 虽然有很多可用的日志框架，但请不要担心，一般来说，使用SpringBoot默认的Logback就可以了。
+ 
+ Logback是没有FATAL级别的日志，它将被映射到ERROR
+ 
+ 时间日期：精确到毫秒,可以用于排序
+ 日志级别：ERROR、WARN、INFO、DEBUG、TRACE
+ 进程ID
+ 分隔符：采用---来标识日志开始部分
+ 线程名：方括号括起来（可能会截断控制台输出）
+ Logger名：通常使用源代码的类名
+ 日志内容：我们输出的消息
+ 
+ SpringBoot默认为我们输出的日志级别为INFO、WARN、ERROR，如需要输出更多日志的时候，可以通过以下方式开启
+ 
+ 命令模式配置：java -jar app.jar --debug=true， 这种命令会被SpringBoot解析，且优先级最高
+ 资源文件配置：application.properties配置debug=true即可。
+ 该配置只对 嵌入式容器、Spring、Hibernate生效，
+ 我们自己的项目想要输出DEBUG需要额外配置（配置规则：logging.level.<logger-name>=<level>）
+ 
+ 
+##   整合thymeleaf模板
+ 
+ Thymeleaf是现代化服务器端的Java模板引擎，不同与其它几种模板的是Thymeleaf的语法更加接近HTML，并且具有很高的扩展性。
+ 
+ ####特点
+ .支持无网络环境下运行，由于它支持 html 原型，然后在 html 标签里增加额外的属性来达到模板+数据的展示方式。
+ 浏览器解释 html 时会忽略未定义的标签属性，所以 thymeleaf 的模板可以静态地运行；
+ 当有数据返回到页面时，Thymeleaf 标签会动态地替换掉静态内容，使页面动态显示。所以它可以让前端小姐姐在浏览器中查看页面的静态效果，又可以让程序员小哥哥在服务端查看带数据的动态页面效果。
+ 
+ 
+ .开箱即用，为Spring提供方言，可直接套用模板实现JSTL、 OGNL表达式效果，避免每天因套用模板而修改JSTL、 OGNL标签的困扰。同时开发人员可以扩展自定义的方言。
+ 
+ .SpringBoot官方推荐模板，提供了可选集成模块(spring-boot-starter-thymeleaf)，可以快速的实现表单绑定、属性编辑器、国际化等功能。
+ 
+ 
+ ####使用
+ 
+ <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-thymeleaf</artifactId>
+ </dependency>
+ 
+ ####注意：Spring4.3以后为简化@RequestMapping(method = RequestMethod.XXX)的写法，
+ ####故而将其做了一层包装，也就是现在的GetMapping、PostMapping、PutMapping、DeleteMapping、PatchMapping
+ 
+ 为了提高响应速度，默认情况下会缓存模板。
+ 如果是在开发中请将spring.thymeleaf.cache 属性设置成 false。在每次修改静态内容时按Ctrl+Shift+F9即可重新加载了
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
