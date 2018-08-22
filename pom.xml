@@ -84,7 +84,7 @@
 			<version>1.3.2</version>
 		</dependency>
 		<!--
-			为了让SpringBoot更好的生成数据
+			为了让SpringBoot更好的生成数据，注解配置
 		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

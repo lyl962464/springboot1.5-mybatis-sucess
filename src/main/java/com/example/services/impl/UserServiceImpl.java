@@ -4,11 +4,13 @@ import com.example.mapper.UserMapper;
 import com.example.model.User;
 import com.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserService {
 
+    @Qualifier("userMapper")
     @Autowired
     private UserMapper userMapper;
 
